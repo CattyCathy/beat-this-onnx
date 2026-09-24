@@ -41,16 +41,16 @@ grid:
 
 | | float build | int8 build |
 | --- | --- | --- |
-| beats after the library's regulariser | 556 | 550 |
-| of those, no partner within 20 ms | 56 | 50 |
+| beats after the library's regulariser | 551 | 557 |
+| of those, no partner within 20 ms | 61 | 67 |
 | median residual to the grid | 29 ms | 29 ms |
-| residual, p90 | 141 ms | 131 ms |
-| residual, max | 385 ms | 372 ms |
-| beats more than 60 ms from the grid | 200 of 556 (36.0%) | 194 of 550 (35.3%) |
+| residual, p90 | 137.7 ms | 141 ms |
+| residual, max | 397 ms | 372 ms |
+| beats more than 60 ms from the grid | 192 of 551 (34.8%) | 202 of 557 (36.3%) |
 
-So the two are **not interchangeable beat for beat** and the quantised one is **not worse** on the metric that matters
-for animation. One track is not a corpus: take the float build if you want the reference artefact, the quantised one if
-you want the size, and re-run the comparison on your own material with the library's `samples/ModelCompare` if the
+So the two are **not interchangeable beat for beat**, and one track cannot rank them: the medians are identical and the
+float build is a shade ahead on the tail here. Take the float build if you want the reference artefact, the quantised one
+if you want the size, and re-run the comparison on your own material with the library's `samples/ModelCompare` if the
 choice matters to you. The library's `docs/model.md` carries this table in context.
 
 ## How they were produced
