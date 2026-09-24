@@ -55,11 +55,17 @@ choice matters to you. The library's `docs/model.md` carries this table in conte
 
 ## How they were produced
 
-The float build is a conversion of the published checkpoint. The int8 build is ONNX Runtime's dynamic quantisation of
-it. Both are reproducible from a checkpoint you fetch yourself, with the recipe written down in the library
-(`tools/export_onnx.py`, `--int8-out` for the quantised file), rather than inferred from a binary — the quantiser's own
-settings are not recoverable from the file it wrote. `--verify` compares two ONNX files on the same input, which is the
-first thing to run against anything new.
+Both files are format conversions of the published `final0` checkpoint, and they are published here because they are the
+exact files the measurements were taken with — the checksums above only mean something if the bytes are available.
+Neither was exported by the maintainers of this repository, and the quantised one records only that its producer calls
+itself `onnx.quantize`: its settings are not recoverable from the file it wrote, so its recipe cannot be stated from the
+artefact.
+
+For a file whose provenance is fully documented, export your own. The library's `tools/export_onnx.py` fetches nothing
+itself, but given a checkpoint it writes both builds with the settings recorded in the code (`--int8-out` for the
+quantised one), and `--verify` compares two ONNX files on the same input. A re-export will not reproduce these checksums
+— different tool versions convert differently — so treat it as a new artefact and measure it rather than assuming these
+numbers carry over.
 
 ## Using them
 
