@@ -1,0 +1,2 @@
+# The weights are Release assets, not repository content.
+*.onnx
